@@ -122,8 +122,7 @@ jobs:
             ENVEOF
 
             # ── Deploy ────────────────────────────────────────────────
-            cd /opt/team3
-            sudo docker compose down || true
-            sudo docker compose pull
-            sudo docker compose up -d
+            sudo docker compose -f /opt/team3/docker-compose.yml --project-directory /opt/team3 down || true
+            sudo docker compose -f /opt/team3/docker-compose.yml --project-directory /opt/team3 pull
+            sudo docker compose -f /opt/team3/docker-compose.yml --project-directory /opt/team3 up -d
             sudo docker image prune -f
